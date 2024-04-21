@@ -17,7 +17,7 @@ app.use(cors(
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-MongoClient.connect(mongoConnectionString, { useUnifiedTopology: true })
+MongoClient.connect(mongoConnectionString)
   .then(client => {
     console.log('Connected to MongoDB');
     const db = client.db('location_data');
