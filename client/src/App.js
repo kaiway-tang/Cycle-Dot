@@ -114,7 +114,19 @@ function App() {
     )}  */}
 
     </Map>
-    askjhdhs
+    
+    <button onClick={() => {
+      axios.post("http://localhost:5000/create-account", {
+        status: "dead",
+        robo_thrusters: "also dead"
+      })
+      .then(response  => {
+        console.log(response.data)
+      }).catch(error => {console.log(error)})
+    }}>
+      Poke poke eyeball crit
+    </button>
+
   </div>
 );
 }

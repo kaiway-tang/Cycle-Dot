@@ -1,6 +1,6 @@
 const express = require('express');        
 const cors = require('cors');                    
-const { MongoClient } = require('mongodb');
+const { MongoClient, Timestamp } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -52,6 +52,26 @@ app.get('/api/locations', async (req, res) => {
     res.status(500).send('Error fetching locations');
   }
 });
+
+app.post('/create-account', async (req, res) =>{
+  try {
+    const db = await connectToDatabase();
+    const userCollection = db.collection('users');
+    const result = await userCollection.insertOne({
+      username: req.body.status,
+      password: req.body.robo_thrusters,
+      age: 5, 
+      timestamp: new Date().toString()
+    });
+
+    res.json("very g");
+    console.log("all g");
+  } catch {
+    
+  }
+}
+
+)
 
 // Start server
 app.listen(port, () => console.log(`Server listening on port ${port}`));
