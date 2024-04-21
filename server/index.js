@@ -44,3 +44,5 @@ MongoClient.connect(mongoConnectionString)
   })
   .catch(error => console.error(error));
 
+  export default app;
+
