@@ -35,6 +35,8 @@ MongoClient.connect(mongoConnectionString)
         .then(results => res.send(results))
         .catch(error => console.error(error));
     });
+
+    // asds
     app.get('/', (req, res) => {
       res.send("Hello kaiway");
     });
