@@ -28,7 +28,7 @@ function App() {
             longitude: position.coords.longitude 
           });
           // Send location to the server
-          axios.post('https://cycle-dot-server-qgf0mx3hl-kaiways-projects-1a22a2c5.vercel.app/api/savelocation', {
+          axios.post('https://cycle-dot-server-hc1swo3hz-kaiways-projects-1a22a2c5.vercel.app/api/savelocation', {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
             timestamp: new Date() 
@@ -51,7 +51,7 @@ function App() {
     } 
 
     const fetchLocations = async () => {
-      const response = await axios.get('https://cycle-dot-server-qgf0mx3hl-kaiways-projects-1a22a2c5.vercel.app/api/locations'); 
+      const response = await axios.get('https://cycle-dot-server-hc1swo3hz-kaiways-projects-1a22a2c5.vercel.app/api/locations'); 
       setLocations(response.data);
    
       // Create new lineData with updated locations
