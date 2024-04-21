@@ -36,6 +36,10 @@ MongoClient.connect(mongoConnectionString, { useUnifiedTopology: true })
         .catch(error => console.error(error));
     });
 
+    app.get('/', (req, res) => {
+      res.send("Hello kaiway");
+    });
+
     app.listen(port, () => console.log(`Server listening on port ${port}`));
   })
   .catch(error => console.error(error));
