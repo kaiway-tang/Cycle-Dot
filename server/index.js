@@ -8,12 +8,6 @@ const port = 3001; // Or any other port you prefer
 
 const mongoConnectionString = 'mongodb+srv://Kaiway:R3quirement$@cycledot.rihksa7.mongodb.net/?retryWrites=true&w=majority&appName=CycleDot'; 
 
-// Middleware
-app.use(cors(
-  {
-    origin: ["https://deploy-menn-1whq.vercel.app"]
-  }
-));
 app.use(bodyParser.json());
 
 // Connect to MongoDB
