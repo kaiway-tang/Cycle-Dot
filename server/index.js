@@ -1,14 +1,15 @@
 const express = require('express');        
 const cors = require('cors');                    
-const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
 const app = express();
-const port = 3001; // Or any other port you prefer
+const port = process.env.PORT || 5000; // Or any other port you prefer
 
 const mongoConnectionString = 'mongodb+srv://Kaiway:R3quirement$@cycledot.rihksa7.mongodb.net/?retryWrites=true&w=majority&appName=CycleDot'; 
 
-app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 // Connect to MongoDB
 MongoClient.connect(mongoConnectionString)
@@ -18,20 +19,20 @@ MongoClient.connect(mongoConnectionString)
     const locationsCollection = db.collection('locations');
 
     // Route to save location
-    app.post('/savelocation', (req, res) => {
+    app.post('/api/savelocation', (req, res) => {
       locationsCollection.insertOne(req.body)
         .then(result => res.send(result))
         .catch(error => console.error(error));
     });
 
-    app.get('/locations', (req, res) => {
+    app.get('/api/locations', (req, res) => {
       locationsCollection.find().toArray()
         .then(results => res.send(results))
         .catch(error => console.error(error));
     });
 
     // asds sdsa
-    app.get('/', (req, res) => {
+    app.get('/api', (req, res) => {
       res.send("Hello kaiway");
     });
 
