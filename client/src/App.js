@@ -18,6 +18,9 @@ function App() {
 
   const [lineData, setLineData] = useState(null); // Initialize lineData
 
+  const [username, setUsername] = useState("");
+  const handleChangeUsername = (event) => {setUsername(event.target.value);} 
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (navigator.geolocation) {
@@ -114,11 +117,14 @@ function App() {
     )}  */}
 
     </Map>
-    
+    <input placeholder= "First and Last Name (required)" value={username} onChange={handleChangeUsername}
+      style = {{"width": "10%"}}
+    ></input>
+    <br></br>
     <button onClick={() => {
-      axios.post("http://localhost:5000/create-account", {
-        status: "dead",
-        robo_thrusters: "also dead"
+      axios.post("https://cycle-dot-server.vercel.app/create-account", {
+        username: username,
+        password: "also dying"
       })
       .then(response  => {
         console.log(response.data)

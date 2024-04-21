@@ -58,9 +58,8 @@ app.post('/create-account', async (req, res) =>{
     const db = await connectToDatabase();
     const userCollection = db.collection('users');
     const result = await userCollection.insertOne({
-      username: req.body.status,
-      password: req.body.robo_thrusters,
-      age: 5, 
+      username: req.body.username,
+      password: req.body.password,
       timestamp: new Date().toString()
     });
 
